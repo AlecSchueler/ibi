@@ -78,7 +78,8 @@ class Interpreter:
             self.tape.replace_cell(ch)
         else:
             # ch will be '' if an EOF is given
-            self.tape.replace_cell(4)
+            exit(0)
+            #self.tape.replace_cell(4)
 
     def start_loop(self):
         if self.tape[self.tape.ptr] == 0:
