@@ -26,7 +26,7 @@ class Tape:
     def __repr__(self):
         # this might be pretty unsemantic;
         # have a think about it
-        return repr(chr(self.tape[self.ptr]))
+        return chr(self.tape[self.ptr])
 
     def __len__(self):
         return len(self.tape)
