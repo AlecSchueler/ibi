@@ -73,7 +73,12 @@ class Interpreter:
         sys.stdout.write(`self.tape`)
 
     def input(self):
-        self.tape.replace_cell(sys.stdin.read(1))
+        ch = sys.stdin.read(1)
+        if ch:
+            self.tape.replace_cell(ch)
+        else:
+            # ch will be '' if an EOF is given
+            self.tape.replace_cell(4)
 
     def start_loop(self):
         if self.tape[self.tape.ptr] == 0:
