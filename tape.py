@@ -9,8 +9,10 @@ class Tape:
 
     def update_ptr(self, dir):
         self.ptr += dir
-        if self.ptr >= self.length or self.ptr < 0:
-            raise ibiexceptions.TapeError
+        if self.ptr < 0:
+            raise ibiexceptions.TapeError("pointer moved before first cell")
+        elif self.ptr >= self.length:
+            raise ibiexceptions.TapeError("pointer moved after final cell")
 
     def update_cell(self, dir):
         self.tape[self.ptr] += dir
