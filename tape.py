@@ -16,7 +16,7 @@ class Tape:
         self.tape[self.ptr] += dir
         if 0 > self.tape[self.ptr]:
             raise TapeError("cell value below 0")
-        self.tape[self.ptr] > 126:
+        elif self.tape[self.ptr] > 126:
             raise TapeError("cell value above 126")
 
     def replace_cell(self, new_val):
