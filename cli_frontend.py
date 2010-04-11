@@ -32,7 +32,7 @@ class Cli_frontend:
             self.interpreter.ex_prog()
 
     def set_prompt(self):
-        self.prompt = "\n%05d:%03d$ " % (self.interpreter.tape.ptr,
+        self.prompt = "%05d:%03d$ " % (self.interpreter.tape.ptr,
                                          self.interpreter.tape.cell_val)
     
     def main(self):
