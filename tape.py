@@ -8,25 +8,16 @@ class Tape:
         self.length = length
         self.cell_val = self.tape[self.ptr]
 
-    def _update_cell_val(func):
-        def call_func_and_update(*args):
-            func(*args)
-            self.cell_val = self.tape[self.ptr]
-        return call_func_and_update
-
-    @_update_cell_val
     def update_ptr(self, dir):
         self.ptr += dir
         if self.ptr >= self.length or self.ptr < 0:
             raise ibiexceptions.TapeError
 
-    @_update_cell_val
     def update_cell(self, dir):
         self.tape[self.ptr] += dir
         if 0 > self.tape[self.ptr] > 126:
             raise TapeError
 
-    @_update_cell_val
     def replace_cell(self, new_val):
         if type(new_val) == str:
             self.tape[self.ptr] = ord(new_val)
