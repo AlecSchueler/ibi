@@ -70,7 +70,7 @@ class Interpreter:
             self.ptr += 1
 
     def output(self):
-        sys.stdout.write(self.tape.cell_val)
+        sys.stdout.write(chr(self.tape.cell_val))
 
     def input(self):
         self.tape.replace_cell(sys.stdin.read(1))
