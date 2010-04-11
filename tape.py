@@ -24,7 +24,10 @@ class Tape:
         self.update_cell_val()
 
     def replace_cell(self, new_val):
-        if type(new_val) == str:
+        if not new_val:
+            # EOF was given as input
+            self.tape[self.ptr] = 4
+        elif type(new_val) == str:
             self.tape[self.ptr] = ord(new_val)
         else:
             self.tape[self.ptr] = int(new_val)
