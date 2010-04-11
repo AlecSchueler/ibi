@@ -70,16 +70,10 @@ class Interpreter:
             self.ptr += 1
 
     def output(self):
-        sys.stdout.write(`self.tape`)
+        sys.stdout.write(chr(self.tape.cell_val))
 
     def input(self):
-        ch = sys.stdin.read(1)
-        if ch:
-            self.tape.replace_cell(ch)
-        else:
-            # ch will be '' if an EOF is given
-            exit(0)
-            #self.tape.replace_cell(4)
+        self.tape.replace_cell(sys.stdin.read(1))
 
     def start_loop(self):
         if self.tape[self.tape.ptr] == 0:
